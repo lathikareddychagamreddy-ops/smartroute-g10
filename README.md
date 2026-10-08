@@ -187,11 +187,12 @@ Connect this GitHub repository to Netlify and use the build settings in
 `netlify.toml` (base directory: `frontend`; build command: `npm run build`;
 publish directory: `dist`). The SPA fallback is also configured there.
 
-The Spring Boot API must run on a Java-capable host; Netlify hosts the frontend
-but does not run this Spring Boot server. Once the API is publicly hosted, set
-`VITE_API_BASE_URL` in Netlify's build environment to the API URL ending in
-`/api`, then trigger a new Netlify deploy. Without this setting, the frontend
-uses `/api`, which is proxied to localhost only by the Vite development server.
+Netlify also deploys the API as a serverless function from
+`frontend/netlify/functions`, using the bundled Hyderabad graph data. The
+`/api/*` rewrite is configured before the SPA fallback in `netlify.toml`, so
+the deployed frontend can load graph data and calculate routes without a
+separate Java host. The Spring Boot backend remains available for local
+development and as the reference implementation.
 
 ---
 
