@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: smartroute-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /api/graph

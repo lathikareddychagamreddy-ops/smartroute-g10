@@ -187,11 +187,13 @@ Connect this GitHub repository to Netlify and use the build settings in
 `netlify.toml` (base directory: `frontend`; build command: `npm run build`;
 publish directory: `dist`). The SPA fallback is also configured there.
 
-The Spring Boot API must be deployed separately to a Java-capable host. Set
-`VITE_API_BASE_URL` in the Netlify site's build environment to the public API
-base URL ending in `/api` (for example, `https://api.example.com/api`). Without
-this setting, the frontend uses `/api`, which is proxied to localhost only by
-the Vite development server and will not reach the backend from Netlify.
+Deploy the Spring Boot API by importing this repository as a Render Blueprint;
+`render.yaml` and `backend/Dockerfile` configure the service. After Render
+creates the API, set `VITE_API_BASE_URL` in Netlify's build environment to the
+Render service URL ending in `/api` (for example,
+`https://smartroute-api.onrender.com/api`), then trigger a new Netlify deploy.
+Without this setting, the frontend uses `/api`, which is proxied to localhost
+only by the Vite development server.
 
 ---
 
