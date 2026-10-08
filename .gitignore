@@ -1,0 +1,8 @@
+node_modules/
+**/target/
+**/dist/
+/bin/
+/tools/
+*.log
+Thumbs.db
+.DS_Store

@@ -1,0 +1,37 @@
+package com.smartroute.dto;
+
+import com.smartroute.model.UserPreferences;
+
+public class RouteRequest {
+    private String startLocation;
+    private String destination;
+    private UserPreferences preferences = new UserPreferences();
+    private String trafficCondition = "Normal";
+    private String weatherCondition = "Clear";
+    private String vehicleType = "Petrol";
+
+    public RouteRequest() {}
+
+    public RouteRequest(String startLocation, String destination) {
+        this.startLocation = startLocation;
+        this.destination = destination;
+    }
+
+    public String getStartLocation() { return startLocation; }
+    public void setStartLocation(String startLocation) { this.startLocation = startLocation; }
+
+    public String getDestination() { return destination; }
+    public void setDestination(String destination) { this.destination = destination; }
+
+    public UserPreferences getPreferences() { return preferences; }
+    public void setPreferences(UserPreferences preferences) { this.preferences = preferences; }
+
+    public String getTrafficCondition() { return trafficCondition; }
+    public void setTrafficCondition(String trafficCondition) { this.trafficCondition = trafficCondition; }
+
+    public String getWeatherCondition() { return weatherCondition; }
+    public void setWeatherCondition(String weatherCondition) { this.weatherCondition = weatherCondition; }
+
+    public String getVehicleType() { return vehicleType; }
+    public void setVehicleType(String vehicleType) { this.vehicleType = vehicleType; }
+}
