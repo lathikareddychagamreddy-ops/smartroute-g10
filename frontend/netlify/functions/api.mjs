@@ -202,7 +202,9 @@ function calculate(request) {
 
 export const handler = async (event) => {
   try {
-    const path = event.path.replace(/^\/\.netlify\/functions\/api/, '').replace(/\/+$/, '') || '/';
+    const path = event.path
+      .replace(/^\/(?:\.netlify\/functions\/api|api)/, '')
+      .replace(/\/+$/, '') || '/';
     const method = event.httpMethod;
     if (method === 'GET' && path === '/graph') return json(200, graph);
     if (method === 'GET' && path === '/graph/nodes') return json(200, graph.nodes);
