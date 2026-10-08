@@ -184,8 +184,8 @@ npm run dev
 ## Deploy the frontend to Netlify
 
 Connect this GitHub repository to Netlify and use the build settings in
-`netlify.toml` (build command: `npm run build`; publish directory:
-`frontend/dist`). The SPA fallback is also configured there.
+`netlify.toml` (base directory: `frontend`; build command: `npm run build`;
+publish directory: `dist`). The SPA fallback is also configured there.
 
 The Spring Boot API must be deployed separately to a Java-capable host. Set
 `VITE_API_BASE_URL` in the Netlify site's build environment to the public API
