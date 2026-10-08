@@ -181,6 +181,18 @@ npm run dev
 ```
 *Open your browser and navigate to **`http://localhost:5173`**.*
 
+## Deploy the frontend to Netlify
+
+Connect this GitHub repository to Netlify and use the build settings in
+`netlify.toml` (build command: `npm run build`; publish directory:
+`frontend/dist`). The SPA fallback is also configured there.
+
+The Spring Boot API must be deployed separately to a Java-capable host. Set
+`VITE_API_BASE_URL` in the Netlify site's build environment to the public API
+base URL ending in `/api` (for example, `https://api.example.com/api`). Without
+this setting, the frontend uses `/api`, which is proxied to localhost only by
+the Vite development server and will not reach the backend from Netlify.
+
 ---
 
 ## 📡 7. REST API Endpoints & Payloads

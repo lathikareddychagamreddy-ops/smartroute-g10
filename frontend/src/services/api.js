@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Uses Vite proxy in dev mode to seamlessly forward to Spring Boot on port 8085
-const API_BASE_URL = '/api';
+// Use the Vite proxy locally, or point deployments at a publicly hosted API.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
