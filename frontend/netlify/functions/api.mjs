@@ -1,7 +1,5 @@
-import { readFileSync } from 'node:fs';
-
-const graph = JSON.parse(readFileSync(new URL('./graph-data.json', import.meta.url), 'utf8'));
-const algorithms = JSON.parse(readFileSync(new URL('./algorithms.json', import.meta.url), 'utf8'));
+import graph from './graph-data.json' with { type: 'json' };
+import algorithms from './algorithms.json' with { type: 'json' };
 const nodeByName = new Map(graph.nodes.map((node) => [node.name, node]));
 const adjacency = new Map(graph.nodes.map((node) => [node.name, []]));
 
